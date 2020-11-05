@@ -1,5 +1,5 @@
 const express = require('express')
-const expressGraphQL = require('express-graphql')
+const { graphqlHTTP } = require('express-graphql')
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -128,7 +128,7 @@ const schema = new GraphQLSchema({
   mutation: RootMutationType
 })
 
-app.use('/graphql', expressGraphQL({
+app.use('/graphql', graphqlHTTP({
   schema: schema,
   graphiql: true
 }))
